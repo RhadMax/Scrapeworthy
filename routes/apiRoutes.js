@@ -15,6 +15,15 @@ module.exports = app => {
                 result.link = $(element)
                     .find("a.article-link")
                     .attr("href");
+                let summary = $(element)
+                    .find("p.synopsis")
+                    .text();
+                summary = summary.replace(/news/, "")
+                summary = summary.replace(/News/, "")
+                summary = summary.replace(/NEWS/, "")
+                summary = summary.replace(/Deals/, "")
+                result.summary = summary
+                result.saved = false;
 
                 db.Article.create(result)
                     .then(function (dbArticle) {
