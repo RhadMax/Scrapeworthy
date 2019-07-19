@@ -67,6 +67,7 @@
 }
 
 .btn-outline-success {
+    border: solid 1px green;
     float: right;
 }
 
@@ -76,9 +77,11 @@
 }
 
 .btn-outline-info {
+    border: solid 1px magenta;
     float: right;
 }
 
 .btn-outline-danger {
+    border: solid 1px red;
     float: right;
 }

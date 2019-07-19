@@ -28,7 +28,7 @@ $(document).on("click", ".btn-outline-success", function () {
         url: "/save/" + id
     }).then((data) => {
         // console.log(data);
-        window.location.href = '/'
+        document.location.reload()
     });
 });
 
@@ -39,7 +39,7 @@ $(document).on("click", ".btn-outline-danger", function () {
         url: "/unsave/" + id
     }).then((data) => {
         // console.log(data);
-        window.location.href = '/saved'
+        document.location.reload()
     });
 });
 
