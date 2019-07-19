@@ -10,7 +10,13 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static("public"));
 
-mongoose.connect("mongodb://localhost/scrapeworthy", { useNewUrlParser: true });
+mongoose.set('useNewUrlParser', true);
+mongoose.set('useFindAndModify', false);
+mongoose.set('useCreateIndex', true);
+
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/scrapeworthy";
+
+mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
 
 app.engine(
   "handlebars",

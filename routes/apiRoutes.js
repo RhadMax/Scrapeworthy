@@ -33,11 +33,10 @@ module.exports = app => {
 
                             })
                             .catch(function (err) {
-                                console.log("Something went wrong retrieving articles with scraper.");
+                                console.log("Something went wrong retrieving articles with scraper. Some article(s) were lost.");
                             });
 
                     });
-                    console.log(`Generated ${counter} articles.`)
                     res.status(200).redirect("/");
                 })
             });
@@ -79,4 +78,30 @@ module.exports = app => {
             });
     });
 
+    app.get("/notes/:id", function (req, res) {
+        db.Article.findOne({
+            _id: req.params.id
+        })
+            .populate("note")
+            .then(article => {
+                res.json(article);
+            })
+    });
+
+    app.post("/notes/add/:id", function (req, res) {
+        let articleId = req.params.id;
+        db.Note.create(req.body)
+            .then(newNote => {
+                return db.Article.findOneAndUpdate({ _id: articleId }, { $push: { note: newNote._id }}, { new: true })
+            })
+            .then(notedArticle => res.json(notedArticle))
+            .catch(err => {console.log(err)})
+    });
+
+    app.delete("/delete/:id", function (req, res) {
+        let noteId = req.params.id;
+        db.Note.deleteOne({_id: noteId})
+        .then(data => res.json(data))
+        .catch(err => {console.log(err)})
+    })
 };

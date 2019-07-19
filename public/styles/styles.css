@@ -85,3 +85,9 @@
     border: solid 1px red;
     float: right;
 }
+
+.note-delete {
+    border: solid 1px red;
+    color: red;
+    float: right;
+}

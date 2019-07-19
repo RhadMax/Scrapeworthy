@@ -63,7 +63,7 @@
     {{/unless}}
 </div>
 
-<div class="bootbox modal fade show" tabindex="-1" role="dialog"
+<div class="bootbox modal fade show note-box" tabindex="-1" role="dialog"
     style="padding-right: 17px; display: block; display:none;">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -75,8 +75,9 @@
                         <hr>
                         <ul class="list-group note-container">
                             <li class="list-group-item">No notes for this article yet.</li>
-                        </ul><textarea placeholder="New Note" rows="4" cols="52"></textarea><button
-                            class="btn btn-success save">Save Note</button>
+                        </ul>
+                        <textarea class="note-entry" placeholder="Enter New Note Here" rows="4" cols="52"></textarea>
+                        <button data-articleId=""class="btn btn-success saver">Save Note</button>
                     </div>
                 </div>
             </div>
