@@ -4,10 +4,7 @@ $(document).on("click", ".scrape-new", function () {
         method: "GET",
         url: "/scrape"
     }).then((data) => {
-        // console.log(data);
         window.location.href = '/'
-        // alert("Loading scraped articles, page will refresh shortly...")
-        //pop up a modal/alert telling user it's loading
     });
 });
 
@@ -16,7 +13,6 @@ $(document).on("click", ".clear", function () {
         method: "PUT",
         url: "/clear"
     }).then((data) => {
-        // console.log(data);
         window.location.href = '/'
     });
 });
@@ -27,7 +23,6 @@ $(document).on("click", ".btn-outline-success", function () {
         method: "PUT",
         url: "/save/" + id
     }).then((data) => {
-        // console.log(data);
         document.location.reload()
     });
 });
@@ -38,7 +33,6 @@ $(document).on("click", ".btn-outline-danger", function () {
         method: "PUT",
         url: "/unsave/" + id
     }).then((data) => {
-        // console.log(data);
         document.location.reload()
     });
 });
