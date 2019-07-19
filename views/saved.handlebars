@@ -7,13 +7,13 @@
 
     <div class="collapse navbar-collapse" id="navbarColor01">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a class="nav-link" href="/">Home
-                    <span class="sr-only">(current)</span>
                 </a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/saved">Saved Scrapes</a>
+            <li class="nav-item active">
+                <a class="nav-link" href="/saved">Saved Scrapes
+                    <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
                 <a class="btn btn-outline-dark scrape-new"><strong>Scrape It</strong></a>
@@ -44,7 +44,8 @@
                 <div class="card-header">
                     <h3>
                         <a class="article-link" target="_blank" rel="noopener noreferrer" href={{link}}>{{title}}</a>
-                        <a data-id={{_id}} class="btn btn-outline-success save">Save Article</a>
+                        <a data-id={{_id}} class="btn btn-outline-danger save">Remove</a>
+                        <a data-id={{_id}} data-title={{title}} class="btn btn-outline-info save">Notes</a>
                     </h3>
                 </div>
                 <div class="card-body">
@@ -55,11 +56,30 @@
     </div>
     <br>
     {{/each}}
-
     {{#unless data}}
     <div class='alert alert-warning text-center'>
-        <h4>No articles found or scraped.</h4>
+        <h4>No saved articles found.</h4>
     </div>
     {{/unless}}
+</div>
 
+<div class="bootbox modal fade show" tabindex="-1" role="dialog"
+    style="padding-right: 17px; display: block; display:none;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body"><button type="button" class="bootbox-close-button close" data-dismiss="modal"
+                    aria-hidden="true" style="margin-top: -10px;">×</button>
+                <div class="bootbox-body">
+                    <div class="container-fluid text-center">
+                        <h4 class="modal-text">Notes For Article:</h4>
+                        <hr>
+                        <ul class="list-group note-container">
+                            <li class="list-group-item">No notes for this article yet.</li>
+                        </ul><textarea placeholder="New Note" rows="4" cols="52"></textarea><button
+                            class="btn btn-success save">Save Note</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

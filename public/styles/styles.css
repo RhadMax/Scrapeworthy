@@ -65,3 +65,20 @@
 .nav-link {
     color: black;
 }
+
+.btn-outline-success {
+    float: right;
+}
+
+.card-header h3 {
+    padding: 10px;
+    margin-bottom: 0px;
+}
+
+.btn-outline-info {
+    float: right;
+}
+
+.btn-outline-danger {
+    float: right;
+}
